@@ -39,7 +39,7 @@ This project is designed to give a very basic familiarity with implementing clie
 ## Turn In
 
 ### Electronic Materials:
-- All source code files (`.cpp` & `.h` files) uploaded as individual files  
+- All source code files (`.c` & `.h` files) uploaded as individual files  
 - A coversheet with:
   - Your name  
   - Class and section  
