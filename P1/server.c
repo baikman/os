@@ -44,7 +44,7 @@ int main() {
             start++;
             end--;
         }
-        
+
         str[length] = '\n';
         write(comm_fd, str, strlen(str)+1);
     }

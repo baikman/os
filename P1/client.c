@@ -26,4 +26,5 @@ int main(int argc,char **argv) {
     write(sockfd,sendline,strlen(sendline)+1);
     read(sockfd,recvline,100);
     printf("%s",recvline);
+    close(sockfd);
 }
