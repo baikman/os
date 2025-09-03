@@ -1,3 +1,6 @@
+// server.c
+// This is server code which (indefinitely) receives code from clients on the same port, which then reverses the input and sends it back to the client
+
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netdb.h>
@@ -24,19 +27,19 @@ int main() {
     listen(listen_fd, 10);
  
     while(1) {
-
+        // Listen for a connection
         comm_fd = accept(listen_fd, (struct sockaddr*) NULL, NULL);
         bzero(str, 100);
- 
+        
         read(comm_fd,str,100);
- 
-        printf("Sending reversed message back - %s",str);
-
+        
+        // Set up to reverse string
         int length = strlen(str);
         int start = 0;
         int end = length - 1;
         char temp;
 
+        // "double pointer"-esque method of reversing a string
         while (start < end) {
             temp = str[start];
             str[start] = str[end];
@@ -45,7 +48,10 @@ int main() {
             end--;
         }
 
+        // Add a newline for visibility
         str[length] = '\n';
+
+        // Send the reversed string
         write(comm_fd, str, strlen(str)+1);
     }
 }
