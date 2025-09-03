@@ -1,0 +1,7 @@
+# Ignore compiled object files
+*.o
+
+# Ignore compiled executables
+a.out
+client
+server
