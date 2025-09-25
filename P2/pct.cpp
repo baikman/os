@@ -34,7 +34,7 @@ void producer() {
         unique_lock<mutex> lock(the_mutex); // Lock the mutex
 
         while (count == N) {
-            condp.wait(lock); // When at the final index, lock this thread
+            condp.wait(lock); // Wait while at the final index
         }
 
         char c = 'A' + rand() % 26; // Set c to a random capital letter
@@ -54,7 +54,7 @@ void consumer() {
         unique_lock<mutex> lock(the_mutex); // Lock the mutex
 
         while (count == 0) {
-            condc.wait(lock); // When at the first (zero-indexed) index, lock this thread
+            condc.wait(lock); // Wait while at the first (zero-indexed) index
         }
 
         char c = buff[out]; // Grab c from the buffer
