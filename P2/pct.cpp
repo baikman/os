@@ -3,6 +3,7 @@
 #include <thread>
 #include <mutex>
 #include <condition_variable>
+#include <chrono>
 
 #define MAX 1000000000
 
@@ -48,6 +49,7 @@ int main (int argc, char *argv[]) {
     thread pro(producer);
     thread con(consumer);
     pro.join();
+    this_thread::sleep_for(chrono::seconds(1));
     con.join();
     return 0;
 }
