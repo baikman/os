@@ -1,0 +1,10 @@
+# Ignore compiled object files
+*.o
+
+# Ignore compiled executables
+a.out
+
+testPR
+testPR.cpp
+ReplacementAlgorithm.h
+reference_string.txt
